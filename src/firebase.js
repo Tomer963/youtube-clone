@@ -1,5 +1,3 @@
-
-
 const firebaseConfig = {
   apiKey: 'AIzaSyDhEFsP3mVwnCzMAkvcCW6E1EhLw3YpwPo',
   authDomain: 'clone-4b5ff.firebaseapp.com',

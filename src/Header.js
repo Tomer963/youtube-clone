@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import youtubeLogo from './assets/youtube-logo.svg';
 
@@ -12,16 +13,29 @@ import { Avatar } from '@material-ui/core';
 import './Header.css';
 
 const Header = () => {
+  const [inputSearch, setInputSearch] = useState('');
+
   return (
     <div className='header'>
       <div className='header__left'>
         <MenuIcon />
-        <img src={youtubeLogo} alt='Youtube Logo' className='header__logo' />
+        <Link to='/'>
+          <img src={youtubeLogo} alt='Youtube Logo' className='header__logo' />
+        </Link>
       </div>
+
       <div className='header__input'>
-        <input placeholder='Search' type='text' />
-        <SearchIcon className='header__inputButton' />
+        <input
+          placeholder='Search'
+          type='text'
+          onChange={(e) => setInputSearch(e.target.value)}
+          value={inputSearch}
+        />
+        <Link to={`/search/${inputSearch}`}>
+          <SearchIcon className='header__inputButton' />
+        </Link>
       </div>
+
       <div className='header__icons'>
         <VideoCallIcon className='header__icon' />
         <AppsIcon className='header__icon' />
